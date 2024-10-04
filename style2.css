@@ -1,0 +1,260 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+#app {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  height: 100vh; 
+  display: flex; 
+  flex-direction: column; 
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.nav-btn {
+  font-size: 24px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover, #today:hover ,#add-event:hover{
+  cursor: pointer;
+  background-color: #3e8e41;
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+#today{
+  background-color: #3d8059;
+  border: 1px solid #13aa52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+#add-event{
+  background-color: #3d8059;
+  border: 1px solid #13aa52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  width: 100%;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  position: relative;
+  /* left: 40%; */
+  bottom: 8%;
+  
+}
+#description{
+  display: grid;
+  width: 98.5%;
+}
+
+@media (min-width: 768px) {
+  #today{
+    padding: 10px 30px;
+  }
+  #add-event{
+    padding: 10px 30px;
+  }
+}
+
+
+
+.curr-month {
+  cursor: pointer;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+}
+
+.calendar {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  table-layout: fixed;
+  flex-grow: 1; 
+  display: flex;
+  flex-direction: column; 
+}
+
+.calendar thead {
+  flex-shrink: 0; 
+}
+
+.calendar tbody {
+  flex-grow: 1; 
+  display: flex; 
+  flex-direction: column; 
+  overflow: auto;
+}
+
+.calendar tr {
+  display: flex; 
+  flex: 1; 
+}
+
+.calendar th,
+.calendar td {
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
+  width: 14.285%;
+  font-size: 20px;
+}
+
+.calendar th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.calendar td.curr-month {
+  background-color: #fff;
+}
+
+.calendar td.other-month {
+  color: #ccc;
+}
+
+.calendar td.today {
+  background-color: #ff9;
+}
+
+/* Modal background */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Close button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #555;
+  text-decoration: none;
+}
+
+/* Modal heading */
+.modal-content h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+/* Labels */
+.modal-content label {
+  display: block;
+  margin-bottom: 5px;
+  color: #34495e;
+}
+
+/* Inputs */
+.modal-content input[type="time"],
+.modal-content textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* Description textarea */
+.modal-content textarea {
+  resize: none;
+  height: 100px;
+}
+
+/* OK Button */
+#add-event {
+  background-color: #27ae60; /* Green color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#add-event:hover {
+  background-color: #218c4a; /* Darker green on hover */
+}
+

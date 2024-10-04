@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendar</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+  <div id="app">
+    <div class="header">
+      <button class="nav-btn" id="prev">&lt;</button>
+      <div class="curr-month"></div>
+      <button class="nav-btn" id="next">&gt;</button>
+      <button id="today">Today</button>
+    </div>
+    <div class="calendar"></div>
+  </div>
+
+  <div class="modal" id="event-modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>New Event at</h2>
+      <h2 id="modal-date"></h2>
+      <label for="start-time">Start Time:</label>
+      <input type="time" id="start-time">
+      <label for="end-time">End Time:</label>
+      <input type="time" id="end-time">
+      <textarea id="description"placeholder="Description"></textarea>
+      <button id="add-event">OK</button>
+    </div>
+  </div>
+  <script src="cal.js"></script>
+</body>
+</html>
